@@ -17,7 +17,7 @@
           >{{course.title}}<i class="material-icons right">more_vert</i></span
         >
         <p class="title">{{course.enrolled.count}} students</p>
-        <a href="" class="btn">Enroll</a>
+        <a href="{% url 'enroll' course.id %}" class="btn">Enroll</a>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"

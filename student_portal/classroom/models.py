@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 
 import uuid
+from PIL import Image
 
 from ckeditor.fields import RichTextField
 
