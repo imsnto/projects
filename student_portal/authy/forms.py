@@ -77,10 +77,8 @@ class EditProfileForm(forms.ModelForm):
 	picture = forms.ImageField(required=False)
 	banner = forms.ImageField(required=False)
 	location = forms.CharField(widget=forms.TextInput(), max_length=25, required=False)
-	url = forms.URLField(widget=forms.TextInput(), max_length=60, required=False)
 	profile_info = forms.CharField(widget=forms.TextInput(), max_length=260, required=False)
 
 	class Meta:
 		model = Profile
-		fields = ('picture', 'banner', 'first_name', 'last_name', 'location', 'url', 'profile_info')
-
+		fields = ('picture', 'banner', 'first_name', 'last_name', 'location', 'profile_info')

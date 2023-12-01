@@ -1,8 +1,7 @@
-"""
-URL configuration for student_portal project.
+"""student_portal URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -20,16 +19,17 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 from authy.views import UserProfile
 from classroom.views import index
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('authy.urls')),
     path('course/', include('classroom.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('direct/', include('direct.urls')),
     path('<username>', UserProfile, name='profile'),
-    path('', index, name='index'),
-
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-
+    path('', index, name='index')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

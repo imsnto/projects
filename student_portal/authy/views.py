@@ -27,7 +27,7 @@ def SideNavInfo(request):
 	if user.is_authenticated:
 		nav_profile = Profile.objects.get(user=user)
 	
-	return {'nav_profile': nav_profile }
+	return {'nav_profile': nav_profile}
 
 
 def UserProfile(request, username):
@@ -39,8 +39,9 @@ def UserProfile(request, username):
 
 	context = {
 		'profile':profile,
-	}
+		'user': user,
 
+	}
 	return HttpResponse(template.render(context, request))
 
 
@@ -101,7 +102,6 @@ def EditProfile(request):
 			user_basic_info.first_name = form.cleaned_data.get('first_name')
 			user_basic_info.last_name = form.cleaned_data.get('last_name')
 			profile.location = form.cleaned_data.get('location')
-			profile.url = form.cleaned_data.get('url')
 			profile.profile_info = form.cleaned_data.get('profile_info')
 			profile.save()
 			user_basic_info.save()

@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% load static %} {% block banner %}
+<!-- Content for the 'banner' block, if needed -->
+{% endblock %} {% block content %}
+<div class="form-profile container">
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      {% if profile.picture %}
+      <img
+        src="{{ profile.picture.url }}"
+        alt="{{ user.first_name }} {{ user.last_name }} Profile Picture"
+        class="profile-picture"
+      />
+      {% endif %}
+    </div>
+  </div>
+  <br />
+  <br />
+  <div>
+    <label for="name"> Name </label>
+    <b><p>{{ user.first_name }} {{ user.last_name }}</p></b>
+  </div>
+
+  <div>
+    <label for="email"> Email </label>
+    <b><p>{{ user.email }}</p></b>
+  </div>
+
+  <div>
+    <label for="phone"> Phone </label>
+    <b><p>{{ profile.phone }}</p></b>
+  </div>
+
+  <div>
+    <label for="nid"> NID </label>
+    <b><p>{{ profile.nid }}</p></b>
+  </div>
+
+  <div>
+    <label for="address"> Address </label>
+    <b><p>{{ profile.address }}</p></b>
+  </div>
+
+  <div>
+    <a href="{% url 'edit-profile'%}">
+      <button>Edit Profile</button>
+    </a>
+  </div>
+</div>
+{% endblock %}
